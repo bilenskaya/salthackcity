@@ -1,0 +1,43 @@
+<section id="posts">
+	<% for article in articles[0...1] %>
+	<article>
+		<header>
+			<h1><%= article.title %></h1>
+			<div class="author"><%= article.author %></div>
+			<div class="details">
+				<time><%= article.date %></time> &bull; <a href="<%= article.path %>">Permalink</a>
+			</div>
+		</header>
+		
+		<%= article.summary %>
+		<a href="<%= article.path %>">Read More</a>
+	</article>
+	<hr>
+	<% end %>
+</section>
+
+<section id="archive">
+	<section id="archive-listing">
+		<% 
+		
+		posts = {}
+		for entry in archives.sort{|a, other| other[:date] <=> a[:date]}
+			posts[Date.parse(entry.date).strftime("%B %Y")] = [] unless posts[Date.parse(entry.date).strftime("%B %Y")].kind_of?(Array)
+			posts[Date.parse(entry.date).strftime("%B %Y")] << entry
+		end	
+		%>
+		<% unless posts.empty? %>
+			<% posts.each do |key, value|  %>
+			<h2><%= key %></h2>
+			<ul>
+			  <% for entry in value %>
+			    <li><a href="<%= entry.path %>"><%= entry.title %></a></li>
+			  <% end %>
+			</ul>
+			<% end %>
+		<% else %>
+		<p>No articles</p>
+		<% end %>
+		
+	</section>
+</section>

@@ -1,0 +1,154 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="false">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!--favicon-->
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="img/favicon.ico"/>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- apple ipad specific-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!--touch icons-->
+	<!-- For third-generation iPad with high-resolution Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+	<!-- For iPhone with high-resolution Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<!-- For first and second generation iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png">
+	
+	<!--seo friendly titles-->
+	<title>
+	<% if @path == 'index' %>
+	    Salt Hack City 
+	<% elsif @path.split('/').compact.length == 4 %>
+	    <%= title %> ∙ Salt Hack City
+	<% else %>
+	    <%= @path.capitalize.gsub(/[-]/, ' ') %> ∙ Salt Hack City
+	<% end %>
+	</title>
+	
+	<!-- general purpose seo -->
+	<meta name="description" content="<%= @context[:description] || 'Description for your blog.' %>">
+	<meta name="keywords" content="">
+	<meta name="company" content="O.C. Tanner" >
+	<meta name="abstract" content="">
+	<meta name="author" content="" >
+	<meta name="designer" content="" >
+	<meta name="copyright" content="Copyright 2012 O.C. Tanner Inc, All Rights Reserved" >
+	<meta name="language" content="en_US" >
+	<meta name="url" content="" >
+	<meta name="identifier-URL" content="" >
+	<meta name="revised" content="6" >
+	<meta name="original-source" content="" >
+	
+	<!-- microsoft meta -->
+	<meta name="application-name" content="" />
+    <meta name="msapplication-tooltip" content="" />
+    <meta name="msapplication-starturl" content="/en/" />
+    
+    <!-- twitter meta -->
+	<meta name="twitter:card" value="summary">
+	<meta name="twitter:site" value="@...">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:creator" value="@...">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:url" content="">
+	<meta name="twitter:image" content="">
+	
+	<!-- facebook meta -->
+	<meta property="og:site_name" content="">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:type" content="Company">
+	<meta property="og:email" content="">
+	<meta property="og:phone_number" content="">
+	<meta property="og:fax_number" content="">
+	<meta property="og:street-address" content="">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:region" content="">
+	<meta property="og:postal-code" content="">
+	<meta property="og:country-name" content="">
+	<meta property="og:latitude" content="">
+	<meta property="og:longitude" content="">
+	<meta property="fb:page_id" content="">
+	<meta property="fb:app_id" content="">
+	<meta property="og:owners" content="">
+	<meta property="fb:admins" content="">
+	
+	<!-- local -->
+	<meta name="zipcode" content="84101" >
+	<meta name="city" content="Salt Lake City" >
+	<meta name="state" content="UT" >
+	<meta name="metropolitan area" content="Salt Lake City, UT" >
+	<meta name="country" content="United States" >
+	<meta name="geo.region" content="US-UT">
+	<meta name="geo.placename" content="Salt Lake City, UT">
+	<meta name="geo.position" content=", ">
+	<meta name="ICBM" content=", ">
+	
+	<!-- element styles -->
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/main.css" rel="stylesheet" type="text/css">
+	
+	<!-- fonts -->
+	<link href="/fonts/merriweather/merriweather.css" rel="stylesheet"  type="text/css"/>
+    <link href="/fonts/sans/sans.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- responsive styles -->
+	<link href="/css/tablet.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 1023px)" />
+	<link href="/css/phone.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 481px)" />
+	
+	<!-- feeds -->
+	<link rel="alternate" type="application/rss+xml" title="Feed" href="http://feeds.feedburner.com/{username goes here}" />
+	
+</head>
+<body>
+	<header class="main">
+		<div class="inner">
+		<nav class="">
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/jobs">Jobs</a>
+				<a href="/events">Events</a>
+			</nav>
+			<h1 id="logo"><a href="/">Salt Hack City</a></h1>
+			<div id="menu-toggle"></div>
+			
+		</div>
+	</header>
+	<div class="banner"></div>
+	<%= yield %> 
+	<footer>
+		<a href="#"><img src="/images/gearflake.jpg" alt="Scroll to Top"/></a>
+		<div class="menu"> 
+			<a href="https://github.com/octanner">Github</a> &bull; 
+			<a href="/about">About</a> &bull;
+			<a href="/jobs">Jobs</a> &bull; 
+			<a href="/events">Events</a>
+		</div>
+		<p><small>&copy; Copyright 2013  O.C. Tanner Inc.</small></p>
+	</footer>
+	
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+

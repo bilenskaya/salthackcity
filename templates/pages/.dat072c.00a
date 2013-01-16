@@ -1,0 +1,18 @@
+<section id="posts">
+	<% for article in articles[0...3] %>
+	<article>
+		<header>
+			<h1><%= article.title %></h1>
+			<div class="author">by Ryan L. Foster</div>
+			<div class="details">
+				<time><%= article.date %></time> &bull; <a href="<%= article.path %>">Permalink</a> &bull; <a href="javascript:void(0)" onclick="read_later('<%= article.url %>');">Read Later</a>
+			</div>
+		</header>
+		
+		<%= article.summary %>
+		<a href="<%= article.path %>">Read...</a>
+	</article>
+	<hr>
+	<% end %>
+</section>
+

@@ -1,0 +1,184 @@
+title: Installing Toto on OSX Mountain Lion
+author: Ryan L. Foster
+
+
+<p>A while back I wrote a guide on <a href="http://fadeyev.net/2010/05/10/getting-started-with-toto/">getting started with Toto</a>, the blogging engine I use to run this site. While Toto is very easy to use, the initial installation can be quite tricky. The old instructions are outdated now with new versions of Mac OS X, so here is a new guide on getting the blog set up and running on Mountain Lion.</p>
+
+<p>Now, if you&rsquo;re not a developer, the number of steps below might put you off. Toto is developer friendly, especially those who work with Ruby, so from their standpoint the guide isn&rsquo;t even necessary. For everyone else though, there is a short learning curve, which may be seem fairly steep. The steps below have less to do with installing Toto than setting up a Ruby-focused development environment on a Mac. This means there&rsquo;s a few of them, but even so, each individual step is very simple, so even if you&rsquo;ve never used a command line before, this won&rsquo;t be very hard to do on a fresh install of OS X Mountain Lion.</p>
+
+<h3>1. Install Xcode and Xcode command line tools</h3>
+
+<p>To run Toto locally we&rsquo;ll need some components that are installed with Apple&rsquo;s Xcode development toolkit. Xcode is not installed by default on a new copy of OS X so we&rsquo;ll need to download and install it. Use the App Store to search for and install Xcode. Once Xcode is installed, you&rsquo;ll need to install the command line package. To do this:</p>
+
+<ol>
+<li>Run Xcode, and, as soon as the app opens, open the Preferences window by clicking on &ldquo;Xcode&rdquo; menu item, and then choosing &ldquo;Preferences&rdquo;.</li>
+<li>Go to the &ldquo;Downloads&rdquo; tab and then click on the &ldquo;Install&rdquo; button next to &ldquo;Command Line Tools&rdquo;</li>
+</ol>
+
+
+<h3>2. Install Homebrew</h3>
+
+<p>Homebrew is a package manager for OS X. If you&rsquo;re not familiar with the package manager concept then what it is is basically a little command line app that will let you easily install development focused tools and frameworks. For our purposes we&rsquo;ll be using it to install Git, but it will most certainly be valuable for you in the future for other things as well.</p>
+
+<p>To install Homebrew, open Terminal.app (search for it in Spotlight if you&rsquo;ve never used it before), paste the following line in, hit Enter, and wait for it to install.</p>
+
+<pre><code>ruby &lt;(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+</code></pre>
+
+<p>Note: the above should work at the time of writing this. You can always check the official <a href="http://mxcl.github.com/homebrew/">Homebrew website</a> to ensure the installation details are still correct. Also: if at any time during the process you&rsquo;re asked for your OS X password, make sure to type it in.</p>
+
+<h3>3. Install Git</h3>
+
+<p>Now that we have Homebrew installed, we can easily install Git. Git is a distributed version control system, which is basically the engine that will keep track of any file changes in Toto, such as new articles, article edits and template changes, and will let you publish those changes to the server.</p>
+
+<p>To install Git using Homebrew, open a Terminal.app window if you&rsquo;ve closed the previous one, type the following command and hit Enter:</p>
+
+<pre><code>brew install git
+</code></pre>
+
+<h3>4. Install RVM</h3>
+
+<p>OS X Mountain Lion comes with an installation of Ruby, the programming language that Toto runs on. The version of the interpreter is fairly old however, so we&rsquo;ll need to update it. To do this I recommend installing something called <a href="https://rvm.io">Ruby Version Manager</a> (RVM). RVM is an invaluable tool for Ruby development which lets you easily install and switch between multiple versions of Ruby on your system.</p>
+
+<p>Apple&rsquo;s new command line tools don&rsquo;t come with GCC (Gnu Compiler Collection), which RVM needs to run, so we&rsquo;ll need to grab this first. This can be done with Homebrew, but for this specific package we&rsquo;ll need to enable the homebrew-dupes repository. To do this, type:</p>
+
+<pre><code>brew tap homebrew/dupes
+</code></pre>
+
+<p>Then to install GCC:</p>
+
+<pre><code>brew install apple-gcc42
+</code></pre>
+
+<p>If I remember correctly RVM also needs the &ldquo;libksba&rdquo; library, which you can grab easily with Homebrew:</p>
+
+<pre><code>brew install libksba
+</code></pre>
+
+<p>Then to install RVM execute the following command:</p>
+
+<pre><code>curl -L https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>Note: RVM may start with an installation note, so read through it to continue the process (you may have to scroll down with the down key). Also, as with the Homebrew command above, you can always check the <a href="https://rvm.io/rvm/install/">RVM installation page</a> to ensure the details are up to date.</p>
+
+<h3>5. Install Ruby</h3>
+
+<p>Once you have RVM, close the old Terminal window and open a new one to initialize RVM. Toto runs great on 1.9.2, so to install it just type:</p>
+
+<pre><code>rvm install 1.9.2
+</code></pre>
+
+<p>Then, when the installation finishes, to switch to 1.9.2, as well as specifying it as the default interpreter, type:</p>
+
+<pre><code>rvm --default use 1.9.2
+</code></pre>
+
+<h3>6. Install Ruby gems: Toto, Thin, etc.</h3>
+
+<p>Ruby gems are Ruby programs that are compiled into packages that other Ruby apps on your machine can make use of. The Toto blog engine is a Ruby gem, and so is the Ruby server we can use to run it called Thin. To get Toto simply type:</p>
+
+<pre><code>gem install toto
+</code></pre>
+
+<p>To get the Thin Ruby web server, type:</p>
+
+<pre><code>gem install thin
+</code></pre>
+
+<p>You don&rsquo;t have to keep typing a new command every time though, if you have a multiple set of gems you want to install, just list them all separated by a single space, like: &ldquo;gem install toto thin&rdquo;</p>
+
+<h3>7. Get the default Toto template</h3>
+
+<p>Now we have all the prerequisites to run a Toto blog on the local computer. To start off we need the default Toto template, which is where new blog post files will go as well. Open a new Terminal window and type:</p>
+
+<pre><code>cd
+</code></pre>
+
+<p>This takes you to your home directory. If you&rsquo;re not familiar with command line commands, you can make a new folder by typing:</p>
+
+<pre><code>mkdir blogs
+</code></pre>
+
+<p>This will create a folder called &ldquo;blogs&rdquo; in your home folder, the same home folder you see in the sidebar of your Finder. To get in the folder type:</p>
+
+<pre><code>cd blogs
+</code></pre>
+
+<p>You don&rsquo;t have to do the above, but it makes sense to keep the blogs we&rsquo;ll create organized in some folder other than just your home folder where all the main stuff sits.</p>
+
+<p>Download the default template using Git by typing the following line, substituting &ldquo;myblog&rdquo; to whatever title you want to use for the folder in which your blog will sit:</p>
+
+<pre><code>git clone git://github.com/cloudhead/dorothy.git myblog
+</code></pre>
+
+<p>Then once again to navigate to this folder using the Terminal type:</p>
+
+<pre><code>cd myblog
+</code></pre>
+
+<h3>8. Running Toto</h3>
+
+<p>After navigating to our blog folder, to run Toto using the Thin Web server type:</p>
+
+<pre><code>thin start
+</code></pre>
+
+<p>If everything has installed correctly, the server should now be running and you&rsquo;ll see a message like this:</p>
+
+<pre><code>&gt;&gt; Using rack adapter
+&gt;&gt; Thin web server (v1.4.1 codename Chromeo)
+&gt;&gt; Maximum connections set to 1024
+&gt;&gt; Listening on 0.0.0.0:3000, CTRL+C to stop
+</code></pre>
+
+<p>To see the blog in action, open your Web browser and go to &ldquo;localhost:3000&rdquo; as the address (i.e. local machine, port 3000, which Thin uses by default). You should now see the default blog setup running live on your computer.</p>
+
+<h3>9. Hosting the blog on Heroku</h3>
+
+<p>I recommend a cloud hosting service called <a href="http://www.heroku.com">Heroku</a> to publish the blog. The footprint of the blog is so small you can run it without problems on the free starter plan, and the other essential add-ons, like linking a custom domain name, are free as well at the time of writing this.</p>
+
+<p>To start using Heroku you need to go to <a href="http://www.heroku.com">heroku.com</a> and get an account.</p>
+
+<p>You then need to grab the Heroku gem, which provides additional functionality for interfacing with Heroku servers. The alternative to the gem is getting something called the <a href="https://toolbelt.heroku.com">Heroku toolbelt</a>, which is a combination of the gem&rsquo;s command line functionality, Git, and a tool called Foreman. This option is good for developers of other languages other than Ruby, but since I already have Ruby and Git, and don&rsquo;t want Foreman, I just go for the gem:</p>
+
+<pre><code>gem install heroku
+</code></pre>
+
+<p>Now, there&rsquo;s a good <a href="https://devcenter.heroku.com/articles/ruby">Ruby deployment guide</a> over at Heroku you can read, which covers the next steps. It covers everything right after install, so I recommend you read through that. Most of the sections you can ignore, the ones you want to read are: &ldquo;Local workstation setup&rdquo;, &ldquo;Store your app in Git&rdquo;, and &ldquo;Deploy to Heroku&rdquo;. I&rsquo;ll summarize the key steps now.</p>
+
+<p>First, you&rsquo;ll want to log in to Heroku:</p>
+
+<pre><code>heroku login
+</code></pre>
+
+<p>This will put up a message asking you for your account details, so enter your username and password.</p>
+
+<p>The next thing it will do is ask you to upload something called an &ldquo;SSH public key&rdquo;. This is a very long string of characters that is used to identify your computer every time you want to deploy your blog changes to the Heroku server. It&rsquo;s like a key instead of a password. If you don&rsquo;t have a key available, you&rsquo;ll be asked to generate one. Make sure to type &ldquo;y&rdquo; and hit Enter to confirm.</p>
+
+<p>Also, when you communicate with the Heroku server your machine may ask you to add its IP address to a list of trusted servers, so make sure to confirm in the same way when asked.</p>
+
+<p>Now, ensuring you&rsquo;re still in your blog directory, as specified in the last step, you can deploy your app by typing the following, substituting &ldquo;myblog&rdquo; to a single word name you want to use to identify your Blog at Heroku (it will also act as a Heroku subdomain, e.g. myblog.heroku.com):</p>
+
+<pre><code>heroku create myblog --stack bamboo
+</code></pre>
+
+<p>This will set up a new app at Heroku ready for you to deploy. The &ldquo;&mdash;stack bamboo&rdquo; bit sets up the blog on an older stack which has a cache engine called Varnish that Toto uses to cache pages. Newer Heroku stacks don&rsquo;t have it, so it&rsquo;s important to pick the right stack. The last step is to push the changes to the server. In our case it means pushing everything as it&rsquo;s all new. This is where Git comes in:</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>Let that run for a bit and if all goes well you should momentarily have a new Toto blog running on Heroku. Once the deployment process stops and gives you back the command prompt, you can type the following to open your new blog in your browser (or simply navigate to &ldquo;myblog.heroku.com&rdquo;:</p>
+
+<pre><code>heroku open
+</code></pre>
+
+<h3>Running into problems?</h3>
+
+<p>If you run into any problems during the install process, make sure to read the error message carefully. Sometimes it might not be an error at all, just a startup message, as you might encounter in the case of RVM, in this case read it carefully to ensure you have everything you need before proceeding with the installation (you may even have to scroll down using the down arrow key). The error messages often give you enough info to figure out what&rsquo;s missing.</p>
+
+<p>If you run into a dead end, or see a mistake in the guide, you can <a href="/contact">drop me an email</a> to let me know what&rsquo;s wrong. I cannot promise to get back to everyone, but I do want to make sure the guide is correct so I will do my best to help out.</p>
+
+<h4>[Update 24 Oct 2012]</h4>
+
+<p>It seems that Heroku is discouraging the use of older stacks, including the one called Bamboo, which I recommended above, so if you want to host on Heroku you&rsquo;ll have to use their latest stack Cedar. Unfortunately this stack <em>does not</em> have Varnish cache on which Toto relies for its caching, meaning that every time the same page is loaded again it will be rendered again, leading to a slower experience. That said&hellip; Toto renders pages very quickly, so for a small blog this may not be an issue, but if you expect waves of thousands of visitors you may need to look at other hosting solutions (You&rsquo;ll need to set up a server with Ruby, Rubygems, Thin, Apache/Nginx, and Varnish cache). If you do host on the latest Heroku stack, you&rsquo;ll need to use a Gemfile instead of a &lsquo;.gems&rsquo; file to specify the gems, which Heroku <a href="https://devcenter.heroku.com/articles/bundler">documents here</a>.</p>

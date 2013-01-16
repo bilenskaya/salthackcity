@@ -1,0 +1,308 @@
+body{
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	/*
+	-webkit-animation-name: 'fade';
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: alternate;
+	*/
+	-webkit-animation: 'fade' 1.5s alternate;
+     -moz-animation: 'fade' 1.5s alternate;
+      -ms-animation: 'fade' 1.5s alternate;
+       -o-animation: 'fade' 1.5s alternate;
+	        animation: 'fade' 1.5s alternate;
+}
+@-webkit-keyframes 'fade'{
+	0%  {opacity: 0;}
+	50% {opacity: 0;}
+	100%{opacity: 1;}
+}
+@-moz-keyframes 'fade'{
+	0%  {opacity: 0;}
+	50% {opacity: 0;}
+	100%{opacity: 1;}
+}
+@-ms-keyframes 'fade'{
+	0%  {opacity: 0;}
+	50% {opacity: 0;}
+	100%{opacity: 1;}
+}
+@-o-keyframes 'fade'{
+	0%  {opacity: 0;}
+	50% {opacity: 0;}
+	100%{opacity: 1;}
+}
+@keyframes 'fade'{
+	0%  {opacity: 0;}
+	50% {opacity: 0;}
+	100%{opacity: 1;}
+}
+
+
+section#posts, section#archive {width:720px;margin:0px auto 0px auto;}
+
+/*
+ * Header
+ */
+body>header {margin:0px auto 50px auto;text-align:center;}
+section#archive header {width:720px;text-align:center;}
+body>header img {width:100px;height:100px;border-radius:100px;border:0px;}
+body>header div.menu {font-size:10pt;text-transform:uppercase;margin-top:30px;}
+
+header.main {
+  border-bottom: 1px solid #ebebeb;
+  margin: auto;
+  overflow: hidden; }
+  @media only screen and (min-width: 769px) {
+    header.main {
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 999; 
+    } 
+  }
+  header.main .inner {
+    overflow: hidden; }
+    @media only screen and (min-width: 769px) {
+      header.main .inner {
+        margin: auto;
+        max-width: 960px; 
+      } 
+  }
+  header.main h1#logo {
+    background-size: 34px;
+    margin: 15px 20px 10px;
+    background-repeat: no-repeat;
+    float: left;
+    font: normal 400 20px/34px "PTSansRegular", sans-serif;
+    letter-spacing: 1px;
+    text-align: left; 
+  }
+    @media only screen and (min-width: 769px) {
+      header.main h1#logo {
+        background-size: 46px;
+        font-size: 26px;
+        line-height: 46px;
+        margin: 30px 0 30px 25px;
+        position: absolute;
+        top: 0; 
+      } 
+    }
+    @media only screen and (-moz-min-device-pixel-ratio: 2), 
+    only screen and (-o-min-device-pixel-ratio: 2 / 1), 
+    only screen and (-webkit-min-device-pixel-ratio: 2), 
+    only screen and (min-device-pixel-ratio: 2) {
+      header.main h1#logo {
+         
+      } 
+    }
+      @media only screen and (-moz-min-device-pixel-ratio: 2) and (min-width: 769px), 
+      only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 769px), 
+      only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 769px), 
+      only screen and (min-device-pixel-ratio: 2) and (min-width: 769px) {
+        header.main h1#logo {
+          
+        } 
+      }
+    header.main h1#logo a {
+      color: #231f20; 
+    }
+    header.main h1#logo a:hover {
+      color: #4594ff; 
+    }
+  header.main #menu-toggle {
+    float: right;
+    background-image: url("../images/toggle.png");
+    background-size: 16px;
+    cursor: pointer;
+    margin: 22px 21px 0 0;
+    width: 16px;
+    height: 16px; }
+    @media only screen and (min-width: 769px) {
+      header.main #menu-toggle {
+        display: none; 
+      } 
+    }
+    @media only screen and (-moz-min-device-pixel-ratio: 2), 
+    only screen and (-o-min-device-pixel-ratio: 2 / 1), 
+    only screen and (-webkit-min-device-pixel-ratio: 2), 
+    only screen and (min-device-pixel-ratio: 2) {
+      header.main #menu-toggle {
+        background-image: url("../images/toggle@2x.png"); 
+      } 
+    }
+	header.main nav {
+	    clear: both;
+	    display: none;
+	    font-family: "PTSansBold",sans-serif;
+	    letter-spacing: 1px;
+	    font-size: 24px;
+	    line-height: 1;
+	    margin: 0;
+	    text-align: right;
+	    
+	    -webkit-transition:all 0.2s ease;
+       -moz-transition:all 0.2s ease;
+       -o-transition:all 0.2s ease;
+        transition:all 0.2s ease; 
+	}
+    header.main nav.active {
+      display: block; 
+      border-bottom:1px solid #ccc;
+    }
+    @media only screen and (min-width: 769px) {
+      header.main nav {
+        clear: none;
+        display: block;
+        font-family: "PTSansRegular",sans-serif;
+        font-size: 16px;
+        margin: 30px 0 30px; 
+      } 
+    }
+    header.main nav a {
+    	background: #eee;
+      border-top: 1px solid #ddd;
+      color: #231f20;
+      display: block;
+      padding: 18px 19px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase; 
+    }
+    header.main nav a:hover, header nav a.current {
+      color: #4594ff; 
+    }
+      @media only screen and (min-width: 769px) {
+        header.main nav a {
+        	background: #fff;
+          border-top: none;
+          display: inline-block;
+          text-align: left; 
+        } 
+      }
+      
+.banner {
+	background: url(../images/mobile-banner.png) center center no-repeat;
+  border-bottom: 1px solid #ebebeb;
+  margin: auto;
+  max-width: 960px;
+  overflow: hidden;
+  
+  min-height:100px; 
+    height:auto !important; 
+    height:100px; 
+  }
+  @media only screen and (min-width: 769px) {
+    .banner {
+      background: url(../images/banner.png) center center no-repeat;
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+  	  max-width: 960px;
+      z-index: 999;
+      
+      min-height:300px; 
+      height:auto !important; 
+      height:300px; 
+    } 
+  }
+  .banner .inner {
+    overflow: hidden; }
+    @media only screen and (min-width: 769px) {
+      .banner .inner {
+        margin: auto;
+        max-width: 960px; 
+      } 
+  }
+  
+    @media only screen and (-moz-min-device-pixel-ratio: 2), 
+    only screen and (-o-min-device-pixel-ratio: 2 / 1), 
+    only screen and (-webkit-min-device-pixel-ratio: 2), 
+    only screen and (min-device-pixel-ratio: 2) {
+      .banner {
+         background: url(../images/mobile-banner@2x.png) center center no-repeat;
+      } 
+    }
+      @media only screen and (-moz-min-device-pixel-ratio: 2) and (min-width: 769px), 
+      only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 769px), 
+      only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 769px), 
+      only screen and (min-device-pixel-ratio: 2) and (min-width: 769px) {
+        .banner h1#logo {
+         	background: url(../images/banner@2x.png) center center no-repeat;
+        } 
+      }
+    
+  
+	
+
+/*
+ * Archive
+ */
+section#archive-listing h2 {font-family:'PTSansBold', Arial, sans-serif; color:#999;font-size:12pt;}
+section#archive-listing ul {list-style:none;}
+section#archive-listing ul li time,section#archive-listing ul li p {display:inline;}
+section#archive-listing ul li time {width:40px;position:relative;float:left;padding-right:10px;text-align:right;}
+section#archive-listing ul li {margin:20px 0 20px 0;}
+section#archive-listing ul li a {
+	color:#272423;
+    font-family: 'PTSansBold', Arial, sans-serif;
+    font-weight:normal;
+    font-size:1.5em; /* 24px */
+    line-height:1; /* 24px */
+    margin:0.6667em 0;/* 32px 0 */
+    padding: 0.6667em 0; /* 16px 0 */
+	display:block;
+}
+
+section#archive-listing ul li a:hover {
+	background:#ebebeb;
+}
+
+/*  
+ * Article Styling 
+ */
+article p {-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;}
+article h1>span {color:#999;}
+
+article header {text-align:center;}
+article header div.details {font-size:12pt;margin-top:15px;}
+article header div.details time {color:#999;}
+article header div.author {font-size:12pt;color:#333;text-transform:uppercase;letter-spacing:0.5em;margin:12px 0px 0px 0px;}
+
+article p.alert {padding:5px 10px;color:#FFF;background-color:#E83405;}
+article p.alert a {text-decoration:underline;color:#FFF;}
+article pre>code {overflow:auto;width:100%;display:block;padding:10px;}
+article sup {margin:0px;padding:0px;line-height:0px;} /* Fixes odd line height in paragraph lines with <sup> tags. */
+
+article img {width:960px}
+article img.nostyle {margin-left:0px;border-radius:0px;}
+article div.image-footnote {line-height:0pt;width:950px;margin-left:-115px;font-size:8pt;color:#999;text-align:right;font-family:"Lucida Grande","Verdana",Tahoma,sans-serif;}
+
+article div.footnotes {border-top: 1px dashed #CCC;}
+article div.footnotes ol li {line-height:16pt;font-size:11pt;color:#666;}
+
+/* Arcicle Tables */
+article table {width:100%;margin:auto auto;border:1px solid #CCC;border-collapse:collapse;}
+article table thead {border-bottom:2px solid #CCC;text-align:left;}
+article table thead tr th {padding:8px;} 
+article table tr {height:26px;}
+article table td {padding:8px;border:1px solid #CCC;} 
+
+/* Article selection styles */
+article ::selection {background:#FFFC7F;color:#333;}
+article ::-moz-selection {background:#FFFC7F;color:#333;}
+article ::-webkit-selection {background:#FFFC7F;color:#333;}
+
+
+
+/* 
+ * Footer 
+ */
+footer {background:#2e3133; color:#777e83; padding: 60px 0 50px 0; margin:50px auto 0 auto;font-size:10pt;text-align:center;}
+footer div.menu {text-transform:uppercase;margin:20px;}
+footer img {width:156px;height:135px;margin:0px 0px 30px 0px;border:none !important; background: none !important}
+footer p {margin:0px 0px 30px 0px;}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title> 
+  <style>
+  	body { 
+  		background:#fff; 
+  		text-align: left;
+  		font: 18px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; 
+  		color: #333;
+  		padding:0;
+  		margin:0;
+  	}
+  	h1 { 
+  		height:46px; 
+  		width:46px; 
+  		text-indent:-9999px; 
+  		background:url(../images/logo-desktop.png) top left no-repeat; 
+  		font-size: 50px; 
+  		text-align: left; 
+  		margin: 20px 20px 0; 
+  	}
+  	h2 {
+  		font-weight: bold; 
+  		font-size:42px;
+  		margin:12px 0; 
+  		color:#333
+  	}
+  	article {
+  		display:block; 
+  		text-align:left;  
+  		margin: 0;
+  		padding: 20px; 
+  	}
+  	p {
+		width: 300px;
+		margin: 0 0 18px;
+		font-size:18px;
+		line-height:24px; 
+		color:#333; 
+  	}
+  	p.first {
+  		font-size:28px;
+  		line-height:32px; 
+  		color:#272423; 
+  		width:270px; 
+  		margin-bottom:28px;
+  	}
+  	a { color:#008C8C; text-decoration:none;}
+    a:focus {outline:1px solid rgba(51,102,204,0.4);}
+    a:hover,a:active {color:#39f;}
+    a:link, a:visited, a:hover {
+       -webkit-transition:all 0.2s ease;
+       -moz-transition:all 0.2s ease;
+       -o-transition:all 0.2s ease;
+        transition:all 0.2s ease;
+    }
+    a:active {
+        color:#03c;
+        border-bottom:1px solid rgba(0,51,204,0.25);
+       -webkit-transition:none;
+       -moz-transition:none;
+       -o-transition:none;
+        transition:none;
+    }
+	
+	@media only screen and (min-width: 480px) {
+  		h2 {font-size:44px;}
+  		p { width: 300px; }
+  		p.first {font-size:28px; width:400px;}
+	}
+	
+	@media only screen and (min-width: 600px) {
+  		h2 {font-size:46px;}
+  		p { width: 400px; }
+  		p.first {font-size:32px;}
+  	}
+  	
+	@media only screen and (min-width: 768px) {
+  		h2 {font-size:48px;}
+  		p { width: 550px; }
+  		p.first {font-size:32px; line-height:36px; width:400px;}
+  	}
+  	
+	@media only screen and (min-width: 992px) {
+  		h2 {font-size:48px;}
+  		p { width: 600px;}
+  		p.first {font-size:32px; line-height:36px; width:700px;}
+	}
+	
+	@media only screen and (min-width: 1382px) {
+  		h2 {font-size:52px;}
+  		p { font-size: 24px; line-height:32px; width: 600px; }
+  		p.first {font-size:34px; line-height:38px; width: 800px;}
+	}
+  </style>
+</head>
+<body>
+	<h1>O.C. Tanner</h1>
+	<article>
+		<h2>Duoh!</h2>
+	  	<p>It's not you, it's me. Ok, maybe it is you, but can we can still be friends?</p>
+	  	<p>You reached a page that doesn't exist, or we broke something. Can we <a href="/">start over fresh?</a></p>
+	</article>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script>   	
+        $(function() { $("p:first").addClass("first"); });
+    </script>
+</body>
+</html>
