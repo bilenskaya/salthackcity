@@ -199,7 +199,7 @@ OCTANNER = (function ($) {
             self.openNewWindow();
             self.getRepos();
             //self.fitVids();
-            self.enableTouchActiveFast();
+            //self.enableTouchActiveFast();
         }
 
     };
