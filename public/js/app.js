@@ -110,6 +110,24 @@ OCTANNER = (function ($) {
                 });
             });
         },
+        
+        getRepos: function() {
+        	$.ajax({
+				url: "https://api.github.com/users/octanner/repos",
+				dataType: 'jsonp',
+				success: function(response){
+					$("#js-github").append("<ul id='list-repos'></ul>");
+					for(var i = 0; i<response.data.length ;i++){
+						$("#list-repos").append("<li id='"+response.data[i]["language"]+"'>"+
+							"<a title='"+response.data[i]["description"]+
+							"' href='"+response.data[i]["html_url"]+"'>"+
+							response.data[i]["name"]+"</a>" + "<span>" + response.data[i]["language"] + "</span></li>"
+						);
+					}
+				},
+			});
+        	
+        },
 
         // Responsive <iframe>s
         // Requires http://fitvidsjs.com/
@@ -179,7 +197,8 @@ OCTANNER = (function ($) {
             self.wrapImages();
             self.showSubmitMessage();
             self.openNewWindow();
-            self.fitVids();
+            self.getRepos();
+            //self.fitVids();
             self.enableTouchActiveFast();
         }
 

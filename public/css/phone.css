@@ -1,4 +1,4 @@
-section#archive, section#archive header, section#posts {width:85%;}
+section#archive, section#archive header, section#posts, footer section {width:85%;}
 
 article blockquote {font-size:1.8rem;line-height:1.75;margin-left:0px;margin-right:0px;}
 article cite {font-size:1.2rem}

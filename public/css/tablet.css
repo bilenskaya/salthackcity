@@ -1,4 +1,4 @@
-section#archive, section#posts {width:70%;}
+section#archive, section#posts, footer section {width:70%;}
 section#archive header {width:100%;}
 article img {margin:0px;width:100%;}
 article div.image-footnote {margin:0px;width:100%;text-align:center;}
